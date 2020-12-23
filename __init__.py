@@ -39,11 +39,9 @@ class FarmSkill(MycroftSkill):
         It is often used to declare variables or perform setup actions, however
         it cannot utilise MycroftSkill methods as the class does not yet exist.
         """
-        super().__init__()
+        super(FarmSkill, self).__init__(name="FarmSkill")
         self.learning = True
-
         
-
     def initialize(self):
         """ Perform any final setup needed for the skill here.
         This function is invoked after the skill is fully constructed and
@@ -53,15 +51,13 @@ class FarmSkill(MycroftSkill):
 
 
     @intent_handler(IntentBuilder('HowIsMyFarmDoingIntent').require('HowIsMyFarmDoingKeyword'))
-    @on_error_speak_dialog('test')
     def handle_how_is_my_farm_doing(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
         self.speak_dialog("how.is.my.farm.doing")
-    
+        
     def stop(self):
         pass
-
 
 def create_skill():
     return FarmSkill()
