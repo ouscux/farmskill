@@ -1,0 +1,7 @@
+{
+  "utterance": "talk to me baby",
+  "intent_type": "HowIsMyFarmDoingIntent",
+  "intent": {
+    "HowIsMyFarmDoingKeyword": "talk to me baby"
+  }
+}

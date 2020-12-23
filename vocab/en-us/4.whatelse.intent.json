@@ -1,0 +1,7 @@
+{
+  "utterance": "What else",
+  "intent_type": "HowIsMyFarmDoingIntent",
+  "intent": {
+    "HowIsMyFarmDoingKeyword": "what else"
+  }
+}

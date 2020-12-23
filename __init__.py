@@ -52,7 +52,7 @@ class FarmSkill(MycroftSkill):
         my_setting = self.settings.get('my_setting')
 
 
-    @intent_handler(IntentBuilder('HowIsMyFarmDoingIntent').require('HowIsMyFarmDoingKeyword'))
+    @intent_handler(IntentBuilder('HowIsMyFarmDoingIntent').require('HowIsMyFarmDoingKeyword')).build()
     @on_error_speak_dialog('test')
     def handle_how_is_my_farm_doing(self, message):
         """ This is a Padatious intent handler.
