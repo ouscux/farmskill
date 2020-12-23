@@ -1,7 +1,0 @@
-{
-  "utterance": "How is my farm today",
-  "intent_type": "HowIsMyFarmDoingIntent",
-  "intent": {
-    "HowIsMyFarmDoingKeyword": "how is my farm today"
-  }
-}
