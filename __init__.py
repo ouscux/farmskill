@@ -48,7 +48,3 @@ class FarmSkill(MycroftSkill):
 
 def create_skill():
     return FarmSkill()
-
-
-
-sudo rm -R /opt/mycroft/skills/farmskill
