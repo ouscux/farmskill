@@ -18,6 +18,21 @@
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 
+def on_error_speak_dialog(dialog_file):
+    def decorator(function):
+        def wrapper(self, message):
+            try:
+                try:
+                    function(self, message)
+                except TypeError:
+                    function(self)
+            except Exception:
+                self.log.exception('In safe wrapped function')
+                self.speak_dialog(dialog_file)
+        return wrapper
+    return decorator
+
+
 class FarmSkill(MycroftSkill):
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
@@ -26,6 +41,8 @@ class FarmSkill(MycroftSkill):
         """
         super().__init__()
         self.learning = True
+
+        
 
     def initialize(self):
         """ Perform any final setup needed for the skill here.
@@ -36,13 +53,12 @@ class FarmSkill(MycroftSkill):
 
 
     @intent_handler(IntentBuilder('HowIsMyFarmDoingIntent').require('HowIsMyFarmDoingKeyword'))
+    @on_error_speak_dialog('test')
     def handle_how_is_my_farm_doing(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
         self.speak_dialog("how.is.my.farm.doing")
-
-        self.speak_dialog("farm.skill")
-
+    
     def stop(self):
         pass
 
