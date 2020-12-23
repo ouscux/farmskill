@@ -34,7 +34,7 @@ class FarmSkill(MycroftSkill):
         settings will be available."""
         my_setting = self.settings.get('my_setting')
 
-    @intent_handler('HowIsMyFarmDoing.intent').require('HowIsMyFarmDoingKeyword')
+    @intent_handler('HowIsMyFarmDoing.intent')
     def handle_how_is_my_farm_doing(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
@@ -48,3 +48,7 @@ class FarmSkill(MycroftSkill):
 
 def create_skill():
     return FarmSkill()
+
+
+
+sudo rm -R /opt/mycroft/skills/farmskill
